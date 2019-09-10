@@ -23,7 +23,11 @@ function App() {
       <Logo />
       <Display />
       <div className="App">
-        <Numbers />
+        <div className="specials_numbers_container">
+          <Specials />
+          <Numbers />
+        </div>
+
         <Operators />
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
       </div>
