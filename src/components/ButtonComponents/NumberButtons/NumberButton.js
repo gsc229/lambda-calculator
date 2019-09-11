@@ -4,12 +4,12 @@ const NumberButton = props => {
   return (
     <>
       <button
-        onClick={() => props.addNumber(props.text)}
+        onClick={() => props.getNumber(props.number)}
         className="number_button"
       >
         {
           /* Display a button element rendering the data being passed down from the parent container on props */
-          props.text
+          props.number
         }
       </button>
     </>

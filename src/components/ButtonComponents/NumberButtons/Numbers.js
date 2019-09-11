@@ -17,8 +17,8 @@ export default function Numbers(props) {
         numberState.map(number => (
           <NumberButton
             key={number}
-            text={number}
-            addNumber={props.addNumber}
+            number={number}
+            getNumber={props.getNumber}
           />
         ))}
       </div>

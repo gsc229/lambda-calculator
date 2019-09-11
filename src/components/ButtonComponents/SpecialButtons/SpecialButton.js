@@ -3,8 +3,11 @@ import React from "react";
 const SpecialButton = props => {
   return (
     <>
-      <button className="special_button">
-        <span>{props.buttonV}</span>
+      <button
+        onClick={() => props.getSpecialOp(props.specialOp)}
+        className="special_button"
+      >
+        <span>{props.specialOp}</span>
       </button>
     </>
   );

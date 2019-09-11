@@ -9,17 +9,34 @@ import Specials from "./components/ButtonComponents/SpecialButtons/Specials";
 
 // Logo has already been provided for you. Do the same for the remaining components
 import Logo from "./components/DisplayComponents/Logo";
+import { get } from "http";
 
 function App() {
   // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
-  const [displayValue, setDisplayValue] = useState(0);
+  const [displayValue, setDisplayValue] = useState("");
 
   // Once the state hooks are in place write some functions to hold data in state and update that data depending on what it needs to be doing
 
-  const addNumber = number => {
+  const getNumber = number => {
     setDisplayValue(displayValue => displayValue + number);
+
+    console.log(`DispVal: ${displayValue}`);
   };
 
+  const getOperator = operator => {
+    if (operator === "=") {
+      setDisplayValue(displayValue => eval(displayValue));
+    } else {
+      setDisplayValue(displayValue => displayValue + operator);
+    }
+
+    console.log(`DispVal: ${displayValue}`);
+  };
+  const getSpecialOp = specOp => {
+    if (specOp === "C") {
+      setDisplayValue("");
+    }
+  };
   // Your functions should accept a parameter of the the item data being displayed to the DOM (ie - should recieve 5 if the user clicks on
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
@@ -27,14 +44,14 @@ function App() {
   return (
     <div className="container">
       <Logo />
-      <Display number={displayValue} />
+      <Display number={displayValue} operator={displayValue} />
       <div className="App">
         <div className="specials_numbers_container">
-          <Specials />
-          <Numbers addNumber={addNumber} />
+          <Specials getSpecialOp={getSpecialOp} />
+          <Numbers getNumber={getNumber} />
         </div>
 
-        <Operators />
+        <Operators getOperator={getOperator} />
       </div>
       {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
     </div>
