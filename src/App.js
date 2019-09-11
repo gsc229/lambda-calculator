@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
+import Display from "./components/DisplayComponents/Display";
+import Numbers from "./components/ButtonComponents/NumberButtons/Numbers";
+import Operators from "./components/ButtonComponents/OperatorButtons/Operators";
+import Specials from "./components/ButtonComponents/SpecialButtons/Specials";
 // STEP 4 - import the button and display components
 // Don't forget to import any extra css/scss files you build into the correct component
 
@@ -8,7 +12,35 @@ import Logo from "./components/DisplayComponents/Logo";
 
 function App() {
   // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
+  const [displayValue, setDisplayValue] = useState("");
+
   // Once the state hooks are in place write some functions to hold data in state and update that data depending on what it needs to be doing
+
+  const getNumber = number => {
+    if (typeof displayValue === "number") {
+      setDisplayValue("");
+      setDisplayValue(number);
+    } else {
+      setDisplayValue(displayValue => displayValue + number);
+    }
+
+    console.log(`DispVal: ${displayValue}`);
+  };
+
+  const getOperator = operator => {
+    if (operator === "=") {
+      setDisplayValue(displayValue => eval(displayValue));
+    } else {
+      setDisplayValue(displayValue => displayValue + operator);
+    }
+
+    console.log(`DispVal: ${displayValue}`);
+  };
+  const getSpecialOp = specOp => {
+    if (specOp === "C") {
+      setDisplayValue("");
+    }
+  };
   // Your functions should accept a parameter of the the item data being displayed to the DOM (ie - should recieve 5 if the user clicks on
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
@@ -16,9 +48,16 @@ function App() {
   return (
     <div className="container">
       <Logo />
+      <Display number={displayValue} operator={displayValue} />
       <div className="App">
-        {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
+        <div className="specials_numbers_container">
+          <Specials getSpecialOp={getSpecialOp} />
+          <Numbers getNumber={getNumber} />
+        </div>
+
+        <Operators getOperator={getOperator} />
       </div>
+      {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
     </div>
   );
 }

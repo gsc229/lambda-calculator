@@ -1,22 +1,140 @@
 .container {
-    background-color: #c00025;
-    width: 100%;
-    max-width: 550px;
-    border-radius: 15px;
-    border: 2px solid grey;
-    padding-bottom: 25px;
+  background-color: #c00025;
+  margin: auto;
+  width: 100%;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  border: 2px solid grey;
+  padding-bottom: 25px;
 }
+.logo-container {
+  align-self: flex-start;
+  margin: 10px;
+}
+
 .display {
+  margin-top: 25px;
+  height: 100px;
+  width: 450px;
+  border-radius: 50px;
+  color: lime;
+  font-family: "Orbitron";
+  background-color: #322c2d;
+  box-shadow: 1px 1px #322c2d;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right: 8%;
+  font-size: 5rem;
+}
+
+.App {
+  width: 450px;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  align-items: center;
+}
+
+.numbers_container {
+  display: flex;
+
+  flex-flow: row wrap;
+  justify-content: space-around;
+  /* border: 2px solid darkgreen; */
+  width: 350px;
+}
+.number_button {
+  background: #184379;
+  margin: 10px;
+}
+
+.number_button:nth-of-type(10) {
+  width: 170px;
+}
+
+.operators_container {
+  height: 485px;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.operators_button {
+  background: #237293;
+}
+
+.specials_container {
+  display: flex;
+  justify-content: space-around;
+  /* border: 2px solid darkgreen; */
+}
+
+.special_button {
+  background: #225d9e;
+}
+
+button {
+  color: #fff;
+  margin: 0.2rem;
+  height: 80px;
+  width: 80px;
+  padding: 10px;
+  font-size: 30px;
+  text-transform: uppercase;
+  border: none;
+  box-shadow: 0px 5px #480e14;
+  border-radius: 50px;
+}
+
+button:hover {
+  background: #fff;
+  color: #282c34;
+  cursor: pointer;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: 90%;
+    display: flex;
+    text-align: center;
+    margin: 20px auto;
+    margin-right: 25px;
+  }
+  .App {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+  }
+  .display {
     margin-top: 25px;
     height: 100px;
-    width: 450px;
-    border-radius: 50px;
-    color: white;
-    background-color: #322c2d;
-    box-shadow: 1px 1px #322c2d;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding-right: 8%;
-    font-size: 5.0rem;
+    width: 80%;
   }
+  .specials_numbers_container {
+    max-width: 80%;
+  }
+  .numbers_container {
+    width: 100%;
+  }
+
+  .operators_container {
+    height: 330px;
+  }
+
+  button {
+    height: 50px;
+    width: 50px;
+  }
+  .number_button:nth-of-type(10) {
+    width: 130px;
+  }
+}
