@@ -9,7 +9,6 @@ import Specials from "./components/ButtonComponents/SpecialButtons/Specials";
 
 // Logo has already been provided for you. Do the same for the remaining components
 import Logo from "./components/DisplayComponents/Logo";
-import { get } from "http";
 
 function App() {
   // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
@@ -18,7 +17,12 @@ function App() {
   // Once the state hooks are in place write some functions to hold data in state and update that data depending on what it needs to be doing
 
   const getNumber = number => {
-    setDisplayValue(displayValue => displayValue + number);
+    if (typeof displayValue === "number") {
+      setDisplayValue("");
+      setDisplayValue(number);
+    } else {
+      setDisplayValue(displayValue => displayValue + number);
+    }
 
     console.log(`DispVal: ${displayValue}`);
   };

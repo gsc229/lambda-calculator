@@ -14,12 +14,14 @@
   align-self: flex-start;
   margin: 10px;
 }
+
 .display {
   margin-top: 25px;
   height: 100px;
   width: 450px;
   border-radius: 50px;
-  color: white;
+  color: lime;
+  font-family: "Orbitron";
   background-color: #322c2d;
   box-shadow: 1px 1px #322c2d;
   display: flex;
@@ -57,10 +59,10 @@
 
 .operator_container {
   height: 500px;
+  background: blue;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
 
   /* border: 2px solid darkgreen; */
   width: 100px;
